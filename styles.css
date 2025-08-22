@@ -1,0 +1,73 @@
+/* main calculator body */
+
+.calculator {
+    margin: auto;
+    margin-top: 100px;
+    height: 500px;
+    width: 330px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+/* results */
+
+.results {
+    height: 200px;
+    border-bottom-style: solid;
+    border-color: lightgrey;
+
+}
+
+/* display */
+
+.display {
+    height: 80px;
+    border-bottom-style: solid;
+    border-color: lightgrey;
+}
+
+/* buttons */
+
+.buttons {
+    height: 200px;
+    padding: 15px 70px 10px 70px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+button {
+    height: 35px;
+    width: 35px;
+}
+
+/* button groups */
+
+.mainButtons,
+.operatorButtons,
+.sideButtons,
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.row.bottom {
+    justify-content: flex-start;
+}
+
+#backspace,
+#clear,
+#equals {
+    width: auto;
+}
+
+#placeholder {
+    height: 35px;
+}

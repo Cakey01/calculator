@@ -11,23 +11,54 @@
         <div class="results"></div>
         <div class="display"></div>
         <div class="buttons">
-            <button id="0">0</button>
-            <button id="1">1</button>
-            <button id="2">2</button>
-            <button id="3">3</button>
-            <button id="4">4</button>
-            <button id="5">5</button>
-            <button id="6">6</button>
-            <button id="7">7</button>
-            <button id="8">8</button>
-            <button id="9">9</button>
-            <button id="=">=</button>
-            <button id="+">+</button>
-            <button id="-">-</button>
-            <button id="x">x</button>
-            <button id="÷">÷</button>
-            <button id="backspace">backspace</button>
-            <button id="clear">clear</button>
+            <div class="mainButtons">
+                <div class="row">
+                    <button id="7">7</button>
+                    <button id="8">8</button>
+                    <button id="9">9</button>
+                </div>
+                <div class="row">
+                    <button id="4">4</button>
+                    <button id="5">5</button>
+                    <button id="6">6</button>
+                </div>
+                <div class="row">
+                    <button id="1">1</button>
+                    <button id="2">2</button>
+                    <button id="3">3</button>
+                </div>
+                <div class="row bottom">
+                    <button id="0">0</button>
+                    <button id="decimal">.</button>
+                </div>
+            </div>
+            <div class="operatorButtons">
+                <div class="column">
+                    <button id="÷">÷</button>
+                    <button id="x">x</button>
+                    <button id="-">-</button>
+                    <button id="+">+</button>
+                </div>
+            </div>
+            <div class="sideButtons">
+                <button id="backspace">backspace</button>
+                <button id="clear">clear</button>
+                <div id="placeholder"></div>
+                <button id="equals">=</button>
+            </div>
+            
+        <!-- <div class="buttons side">
+            <div class="column">
+                <button id="÷">÷</button>
+                <button id="x">x</button>
+                <button id="-">-</button>
+                <button id="+">+</button>
+            </div>
+            <div class ="side">
+                <button id="backspace">backspace</button>
+                <button id="clear">clear</button>
+                <button id="=">=</button>
+            </div> -->
         </div>
     </div>
     <script src="index.js"></script>
