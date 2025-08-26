@@ -15,6 +15,8 @@ function buttonPress(buttons) {
                 } else {
                     display.textContent += button.id;
                 }
+            } else if (button.id === "clear") {
+                display.textContent = "";
             }
         });
     });
