@@ -5,32 +5,38 @@
     margin-top: 100px;
     height: 500px;
     width: 330px;
-    border-style: solid;
-    border-color: lightgrey;
+    outline: 3px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 /* results */
 
 .results {
-    height: 200px;
-    border-bottom-style: solid;
-    border-color: lightgrey;
-
+    height: 40%;
 }
 
 /* display */
 
 .display {
-    height: 80px;
-    border-bottom-style: solid;
-    border-color: lightgrey;
+    height: 20%;
+    outline: 3px solid lightgrey;
+}
+
+.input {
+    float: right;
+    height: 100%;
+    margin: auto;
+    vertical-align: middle;
+    
 }
 
 /* buttons */
 
 .buttons {
-    height: 200px;
-    padding: 15px 70px 10px 70px;
+    height: 40%;
+    margin: 15px 70px 10px 70px;
     display: flex;
     gap: 15px;
     justify-content: center;
