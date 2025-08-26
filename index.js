@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll("button");
+const operators = ["-", "+", "x", "÷"];
+const action = ["backspace", "clear", "equals"];
 // get button id when button is pressed
 
 function buttonPress(buttons) {
@@ -8,19 +10,24 @@ function buttonPress(buttons) {
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             // if button clicked isn't clear, backspace, or equals sign, show in the display
-            if (button.id != "clear" && button.id != "backspace" && button.id != "equals") {
+            if (!action.includes(button.id)) {
                 // if button is an operator, add space around it
-                if (button.id === "÷" || button.id === "x" || button.id === "-" || button.id === "+") {
+                if (operators.includes(button.id)) {
                     display.textContent += " " + button.id + " ";
                 } else {
                     display.textContent += button.id;
                 }
+            // clear display if user presses clear button
             } else if (button.id === "clear") {
                 display.textContent = "";
+            } else if (button.id === "backspace") {
+
             }
         });
     });
 }
 
 
+
 buttonPress(buttons);
+
