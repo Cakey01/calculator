@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll("button");
-const operators = ["-", "+", "x", "÷"];
+const operators = ["-", "+", "x", "/"];
 const action = ["backspace", "clear", "equals"];
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
@@ -21,9 +21,9 @@ function backspace(display, currentDisplay, lastInput) {
 function inputNumber(display, button, lastInput) {
     // if the last input was an operator, add a space
     if (operators.includes(lastInput)) {
-        display.textContent += " " + button.id;
+        display.textContent += " " + Number(button.id);
     } else {
-        display.textContent += button.id;
+        display.textContent += Number(button.id);
     }
 }
 
@@ -60,8 +60,8 @@ function operate (currentDisplay, button) {
         result = subtract(expression[0], expression[2]);
     } else if (expression[1] === "x") {
         result = multiply(expression[0], expression[2]);
-    } else if (expression[1] === "÷") {
-        result = multiply(expression[0], expression[2]);
+    } else if (expression[1] === "/") {
+        result = divide(expression[0], expression[2]);
     }
     return result;
 }
@@ -84,7 +84,6 @@ function createResultDiv(calculation, expression) {
 function buttonPress(buttons) {
     // define input display
     const display = document.querySelector(".input");
-    const result = document.createElement("div")
     // for each button add listener for click
     buttons.forEach(button => {
         button.addEventListener("click", () => {
