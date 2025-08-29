@@ -18,7 +18,8 @@ function backspace(display, currentDisplay, lastInput) {
     }
 }
 
-function inputNumber (display, button, lastInput) {
+function inputNumber(display, button, lastInput) {
+    // if the last input was an operator, add a space
     if (operators.includes(lastInput)) {
         display.textContent += " " + button.id;
     } else {
@@ -26,13 +27,45 @@ function inputNumber (display, button, lastInput) {
     }
 }
 
-function inputOperator (display, button, lastInput) {
-    // cant have an operator without a number in front of it
-    // cont have two operators in a row
+function inputOperator(display, button, lastInput) {
+    // cant' have an operator without a number in front of it
+    // can't have two operators in a row
     if (numbers.includes(lastInput)) {
         display.textContent += " " + button.id;
     }
 }
+
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+function operate (currentDisplay, button) {
+    let result = 0;
+    let expression = currentDisplay.split(" ");
+    if (expression[1] === "+") {
+        result = add(expression[0], expression[2]);
+    } else if (expression[1] === "-") {
+        result = subtract(expression[0], expression[2]);
+    } else if (expression[1] === "x") {
+        result = multiply(expression[0], expression[2]);
+    } else if (expression[1] === "÷") {
+        result = multiply(expression[0], expression[2]);
+    }
+    
+}
+
 
 function buttonPress(buttons) {
     // define input display
@@ -50,7 +83,7 @@ function buttonPress(buttons) {
             } else if (button.id === "backspace") {
                 backspace(display, currentDisplay, lastInput);
             } else if (button.id === "equals") {
-                console.log("equals");
+                calculate(currentDisplay, button);
             } else if (numbers.includes(button.id)) {
                 inputNumber(display, button, lastInput);
             } else if (operators.includes(button.id)) {
