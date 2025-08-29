@@ -52,7 +52,7 @@ function divide(a, b) {
 }
 
 function operate (currentDisplay, button) {
-    let result = 0;
+    let result = null;
     let expression = currentDisplay.split(" ");
     if (expression[1] === "+") {
         result = add(expression[0], expression[2]);
@@ -63,13 +63,28 @@ function operate (currentDisplay, button) {
     } else if (expression[1] === "÷") {
         result = multiply(expression[0], expression[2]);
     }
-    
+    return result;
 }
 
+function createResultDiv(calculation, expression) {
+    // select results display
+    const display = document.querySelector(".results");
+    // create result div and add result class
+    const div = document.createElement("div");
+    div.classList.add("resultRow");
+    // create p element, add class, and put calculation as text
+    const result = document.createElement("p");
+    result.classList.add("resultAnswer");
+    result.textContent = expression + " " + "=" + " " + calculation;
+    // append resultAnswer to resultRow, and append resultRow to display div;
+    div.appendChild(result);
+    display.appendChild(div);
+}
 
 function buttonPress(buttons) {
     // define input display
     const display = document.querySelector(".input");
+    const result = document.createElement("div")
     // for each button add listener for click
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -83,11 +98,19 @@ function buttonPress(buttons) {
             } else if (button.id === "backspace") {
                 backspace(display, currentDisplay, lastInput);
             } else if (button.id === "equals") {
-                calculate(currentDisplay, button);
+                let calculation = operate(currentDisplay);
+                createResultDiv(calculation, currentDisplay);
+                clear(display);
             } else if (numbers.includes(button.id)) {
                 inputNumber(display, button, lastInput);
             } else if (operators.includes(button.id)) {
-                inputOperator(display, button, lastInput);
+                // if expression already has an operator, calculate and change input to
+                // calculated expression with new operator
+                if (currentDisplay.split(" ").some((item) => operators.includes(item))) {
+                    display.textContent = operate(currentDisplay) + " " + button.id;
+                } else {
+                    inputOperator(display, button, lastInput);
+                }
             }
         });
     });
