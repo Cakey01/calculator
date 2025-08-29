@@ -15,8 +15,22 @@
 
 .results {
     height: 40%;
+    display: flex;
+    flex-direction: column-reverse;
+
 }
 
+.resultRow {
+    height: 38px;
+    width: 330px;
+}
+
+.resultAnswer {
+    color: rgb(36, 34, 34);
+    text-align: end;
+    margin: 0;
+    padding-top: 10px;
+}
 /* display */
 
 .display {
