@@ -106,7 +106,7 @@ function buttonPress(buttons) {
             } else if (operators.includes(button.id)) {
                 // if expression already has an operator, calculate and change input to
                 // calculated expression with new operator
-                if (currentDisplay.split(" ").some((item) => operators.includes(item))) {
+                if (currentDisplay.split(" ").some((item) => operators.includes(item)) && (!operators.includes(lastInput))) {
                     display.textContent = operate(currentDisplay) + " " + button.id;
                 } else {
                     inputOperator(display, button, lastInput);
