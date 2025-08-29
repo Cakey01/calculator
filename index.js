@@ -97,7 +97,7 @@ function buttonPress(buttons) {
                 clear(display);
             } else if (button.id === "backspace") {
                 backspace(display, currentDisplay, lastInput);
-            } else if (button.id === "equals" && currentDisplay != "") {
+            } else if (button.id === "equals" && currentDisplay != "" && currentDisplay.split(" ").length === 3) {
                 let calculation = operate(currentDisplay);
                 createResultDiv(calculation, currentDisplay);
                 clear(display);
