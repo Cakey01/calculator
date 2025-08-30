@@ -35,6 +35,15 @@ function inputOperator(display, button, lastInput) {
     }
 }
 
+function decimal(display, currentDisplay) {
+    let expression = currentDisplay.split(" ");
+    if (expression.length < 2 && !expression[0].includes(".")) {
+        display.textContent += ".";
+    } else if (expression.length > 2 && !expression[2].includes(".")) {
+        display.textContent += ".";
+    }
+}
+
 function add(a, b) {
     return a + b;
 }
@@ -51,7 +60,7 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate (currentDisplay, button) {
+function operate (currentDisplay) {
     let result = null;
     let expression = currentDisplay.split(" ");
     if (expression[1] === "+") {
@@ -110,6 +119,8 @@ function buttonPress(buttons) {
                 } else {
                     inputOperator(display, button, lastInput);
                 }
+            } else if (button.id === "decimal") {
+                decimal(display, currentDisplay);
             }
         });
     });
