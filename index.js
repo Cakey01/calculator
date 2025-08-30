@@ -74,6 +74,14 @@ function operate (currentDisplay) {
     } else if (expression[1] === "/") {
         result = divide(expression[0], expression[2]);
     }
+    if (String(result).includes(".")) {
+        result = result.toFixed(2);
+        if (result.endsWith("0") && result[0] != "0") {
+            result = result.split(0, result.length - 1)[0];
+        } else if (result.endsWith("0") && result[0] === "0") {
+            result = "0" + result.split(0, result.length - 1)[1];
+        }
+    }
     return result;
 }
 
