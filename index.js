@@ -9,7 +9,7 @@ function clear(display) {
 
 function backspace(display, currentDisplay, lastInput) {
     // if the last char in the display string is a number, delete the last char
-    if (numbers.includes(lastInput)) {
+    if (numbers.includes(lastInput) || currentDisplay[currentDisplay.length - 1] === ".") {
         display.textContent = currentDisplay.slice(0, currentDisplay.length - 1);
     }
     // if the second to last char is a space remove the last char and the space
@@ -41,6 +41,8 @@ function decimal(display, currentDisplay) {
         display.textContent += ".";
     } else if (expression.length > 2 && !expression[2].includes(".")) {
         display.textContent += ".";
+    } else if (expression.length === 2) {
+        display.textContent += " ."
     }
 }
 
